@@ -3,7 +3,7 @@ package com.dreamlee.struct.intf;
 /**
  * @author: DreamLee
  * @date: Created on 21:42 2018/12/5
- * @description: [describe the function]
+ * @description: non-repeatable set
  * @modified:
  */
 public interface Set<E> {

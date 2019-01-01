@@ -3,7 +3,7 @@ package com.dreamlee.struct;
 /**
  * @author: DreamLee
  * @date: Created on 18:05 2018/11/18
- * @description:
+ * @description: double direction linkedlist
  * @modified:
  */
 public class MyLinkedList<E> {
@@ -24,6 +24,21 @@ public class MyLinkedList<E> {
 
     public boolean isEmpty() {
         return size == 0;
+    }
+
+    public boolean contains(E e) {
+        boolean isContains = false;
+        if (null != e) {
+            Node<E> curr = dummyHead;
+            while (null != curr.next) {
+                if (e.equals(curr.next.e)) {
+                    isContains = true;
+                    break;
+                } else
+                    curr = curr.next;
+            }
+        }
+        return isContains;
     }
 
     //add
@@ -74,6 +89,27 @@ public class MyLinkedList<E> {
             ret.next.prev = pre;
         size--;
         return ret.e;
+    }
+
+    public boolean removeElement(E e) {
+        boolean success = false;
+        if (null != e) {
+            Node<E> pre = dummyHead;
+            while (null != pre.next) {
+                Node<E> curr = pre.next;
+                if (e.equals(curr.e)) {
+                    //delete current node
+                    pre.next = curr.next;
+                    if (null != curr.next)
+                        curr.next.prev = pre;
+                    curr = null;
+                    success = true;
+                    break;
+                } else
+                    pre = pre.next;
+            }
+        }
+        return success;
     }
 
     //set
@@ -139,9 +175,9 @@ public class MyLinkedList<E> {
         list.addLast(4);
         list.addLast(5);
         System.out.println(list);
-        list.remove(4);
-        list.remove(3);
-        list.remove(0);
+        list.removeElement(4);
+        list.removeElement(3);
+        //list.remove(0);
         System.out.println(list);
     }
 
