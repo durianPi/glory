@@ -1,4 +1,4 @@
-package com.dreamlee.struct;
+package com.dreamlee.struct.impl;
 
 import java.util.LinkedList;
 import java.util.Queue;

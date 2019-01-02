@@ -1,4 +1,4 @@
-package com.dreamlee.struct;
+package com.dreamlee.struct.impl;
 
 import com.dreamlee.struct.intf.Set;
 

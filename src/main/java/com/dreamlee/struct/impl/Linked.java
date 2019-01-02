@@ -1,4 +1,4 @@
-package com.dreamlee.struct;
+package com.dreamlee.struct.impl;
 
 /**
  * @author: DreamLee

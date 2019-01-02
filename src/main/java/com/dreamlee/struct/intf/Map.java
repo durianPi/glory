@@ -1,0 +1,25 @@
+package com.dreamlee.struct.intf;
+
+/**
+ * @author: DreamLee
+ * @create: 1/3/19 12:18 AM
+ * @modify:
+ * @desciption:
+ */
+public interface Map<K, V> {
+
+    void add(K key, V value);
+
+    V remove(K key);
+
+    boolean contains(K key);
+
+    V get(K key);
+
+    void set(K key, V value);
+
+    int getSize();
+
+    boolean isEmpty();
+
+}

@@ -1,9 +1,9 @@
 package com.dreamlee.struct.test;
 
-import com.dreamlee.struct.Array;
-import com.dreamlee.struct.ArrayStack;
-import com.dreamlee.struct.Linked;
-import com.dreamlee.struct.LoopQueue;
+import com.dreamlee.struct.impl.Array;
+import com.dreamlee.struct.impl.ArrayStack;
+import com.dreamlee.struct.impl.Linked;
+import com.dreamlee.struct.impl.LoopQueue;
 import org.junit.Test;
 
 /**
