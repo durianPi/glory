@@ -1,9 +1,6 @@
 package com.dreamlee.struct.test;
 
-import com.dreamlee.struct.impl.Array;
-import com.dreamlee.struct.impl.ArrayStack;
-import com.dreamlee.struct.impl.Linked;
-import com.dreamlee.struct.impl.LoopQueue;
+import com.dreamlee.struct.impl.*;
 import org.junit.Test;
 
 /**
@@ -76,6 +73,19 @@ public class MyTest {
         System.out.println(queue.dequeue());
         System.out.println(queue.dequeue());
         System.out.println(queue);
+    }
+
+    @Test
+    public void testLinkedListMap() {
+        LinkedListMap<String, Integer> map = new LinkedListMap<>();
+        map.add("a", 1);
+        map.add("b", 2);
+        map.add("c", 3);
+        map.add("d", 4);
+        map.set("e", 5);
+        map.remove("a");
+        map.remove("c");
+        System.out.println(map);
     }
 
 }
