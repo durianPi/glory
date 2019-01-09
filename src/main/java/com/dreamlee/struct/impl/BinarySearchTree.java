@@ -103,7 +103,7 @@ public class BinarySearchTree<E extends Comparable<E>> {
                 // 待删除节点左右子树均不为空的情况，找到比待删除节点大的最小节点，
                 // 即待删除节点右子树的最小节点，用这个节点顶替待删除节点的位置
                 Node ret = minimum(node.right);
-                ret.right = removeMin(node.right);
+                ret.right = removeMin(node.right);//此处与下一句不能换位置，为什么?
                 ret.left = node.left;
                 System.out.println("abc");
                 node = null;
@@ -118,6 +118,8 @@ public class BinarySearchTree<E extends Comparable<E>> {
         return ret;
     }
     private Node<E> removeMin(Node<E> node) {
+        if (null == node)
+            return null;
         if (null == node.left) {
             Node<E> rightNode = node.right;
             node.right = null;
@@ -134,6 +136,8 @@ public class BinarySearchTree<E extends Comparable<E>> {
         return ret;
     }
     private Node<E> removeMax(Node<E> node) {
+        if (null == node)
+            return null;
         if (null == node.right) {
             Node<E> leftNode = node.left;
             node.left = null;
@@ -150,12 +154,16 @@ public class BinarySearchTree<E extends Comparable<E>> {
         return minimum(root).e;
     }
     private Node<E> minimum(Node<E> node) {
+        if (null == node)
+            return null;
         if (null == node.left) {
             return node;
         }
         return minimum(node.left);
     }
     private Node<E> minimum2(Node<E> node) {
+        if (null == node)
+            return null;
         while (null != node.left) {
             node = node.left;
         }
@@ -168,12 +176,16 @@ public class BinarySearchTree<E extends Comparable<E>> {
         return maximum(root).e;
     }
     private Node<E> maximum(Node<E> node) {
+        if (null == node)
+            return null;
         if (null == node.right) {
             return node;
         }
         return maximum(node.right);
     }
     private Node<E> maximum2(Node<E> node) {
+        if (null == node)
+            return null;
         while (null != node.right) {
             node = node.right;
         }
