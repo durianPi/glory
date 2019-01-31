@@ -142,6 +142,15 @@ public class Array<E> {
         return false;
     }
 
+    //交换两个索引的元素
+    public void swap(int i, int j) {
+        if (i < 0 || j < 0 || i >= size || j >= size)
+            throw new IllegalArgumentException("The index of array is illegal.");
+        E temp = data[i];
+        data[i] = data[j];
+        data[j] = temp;
+    }
+
     //toString
     @Override
     public String toString() {
