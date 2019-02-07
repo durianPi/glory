@@ -53,19 +53,31 @@ public class MaxHeap<E extends Comparable<E>> {
     }
 
     public E extractMax() {
-        E ret = data.getFirst();
-
+        E ret = findMax();
+        data.set(data.get(data.getSize() - 1), 0);
+        data.removeLast();
+        siftDown(0);
         return ret;
     }
 
     private void siftDown(int i) {
-        E left = data.get(leftChild(i));
-        E right = data.get(rightChild(i));
-        if (left.compareTo(right) > 0)
-            if (left.compareTo(data.get(i)) > 0)
-                data.swap(i, leftChild(i));
-        else
-            if (right.compareTo(data.get(i)) > 0)
-                data.swap(i, rightChild(i));
+        while (leftChild(i) < data.getSize()) {
+            int j = leftChild(i);
+            if (rightChild(i) < data.getSize() && data.get(j).compareTo(data.get(j+1)) < 0)
+                j++;
+            if (data.get(i).compareTo(data.get(j)) < 0) {
+                data.swap(i, j);
+                i = j;
+            } else {
+                break;
+            }
+
+        }
+    }
+
+    private E findMax() {
+        if (data.getSize() == 0)
+            throw new IllegalArgumentException("Can not findMax when heap is empty");
+        return data.get(0);
     }
 }
